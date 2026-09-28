@@ -20,7 +20,7 @@
 6. ✅ 紧急继续原因记录：`emergency_continue` 可选原因（≤256 rune、可空）全链路暴露并跨持久化逐字保留（详见「已固定的适配器契约」）。
 7. ✅ **对话内逃生口（V1 主交互交付）**：Claude Code Path A（内联 `` !`bash` `` 在预处理阶段先授 lease、同一 `UserPromptSubmit` 复查后自授权放行）与 Codex `$walkout:continue` plugin skill + hook 固定标记自授权、`!walkout-ctl ...` 兜底，均经真机验证闭合；两宿主阻止文案（英文单句）指向各自入口。Claude Code 控制面已打包（见第 8 步）。Codex 侧调查结论/机制矩阵见 `agent-lifecycle-hooks-explained.md §9.2.2`，探针复现见 `manual-probes/codex-emergency-continue/` 与 `internal/adapters/codex/testdata/v0.146.0/manifest.json`，候选 A/B/C/D 取舍与根因见 Git `a316abe`。可选残余：Claude Code 控制提交的模型 turn 约束复测。
 8. ✅ 安装器 / 插件打包：Claude Code 与 Codex 两侧均已形成可构建、可安装的独立插件；各自 lifecycle hook、对话内控制入口、版本回落、默认 SID 管道、首次信任与升级重授权均经真实宿主安装探针闭合。
-9. ✅ 命名最终化：品牌词 **Walkout**、伞品牌 `lexicon`（Master 2026-08-17 裁定），一次性替换完成并经两宿主真机安装复验闭合（Master 2026-08-25，见下方结论）；仓库目录/远端改名为 `walkout` 属外部动作，随发布执行。
+9. ✅ 命名最终化：品牌词 **Walkout**、伞品牌 `lexicon`（Master 2026-08-17 裁定），一次性替换完成并经两宿主真机安装复验闭合（Master 2026-08-25，见下方结论）；仓库目录与远端均已为 `walkout`（2026-09-28 随开源发布完成）。
 10. ▶ **发布前冲刺**：两宿主发布门槛已全部真机闭合，公开仓库已建立（2026-09-28）；余下本地改名、探针零残留终验与 GitHub 形式安装验证（见下方「下一动作」）。
 11. ⏭ 实验/遥测最小事件模型：`experiment-plan.md` 的三组 A/B（提醒人格、升级后果、验证方式）所需最小事件；不阻塞首发，随首批真实使用数据需求启动。
 12. ⏳ 摄像头验证流程（**Master 2026-08-25 裁定：移出开发主线，降为可选优化 / V1.x**）：present/absent/uncertain 本地验证仅在两宿主发布且稳定后按 `v1-scope.md` §3 的 bounded spike 评估；无摄像头路径是且始终是正式通路。
@@ -118,7 +118,7 @@
 
 - **真机验收轮（2026-09-25 → 09-28，Claude Code `2.1.281` / Codex `0.156.1`）已闭合的结论**：两宿主 `additionalContext` 注入均真实进入模型上下文（overtime 每条 prompt 放行并追加模型自拟提醒）；`/walkout:done`·`$walkout:done` 可发现、单步清零回 `working`；walkout 阻断文案同时给出 done 与 continue 入口；`$walkout:continue <中文 reason>` 与 `!walkout-ctl` 兜底在 0.156.1（比 fixture 新十个小版本）正常；Claude 被阻后 ↑ 原样回填且 `2.1.281` 回显 `Original prompt`；Claude 插件升级 `0.1.0 → 0.1.1`（`marketplace update` + `plugin update`）通过，升级须同步 `plugins/walkout/.claude-plugin/plugin.json` 与 `.claude-plugin/marketplace.json` 两处版本（待加契约测试断言一致）。自然语言活动确认：Claude 成立（auto mode 由分类器放行、无弹窗；默认权限模式应预期一次性授权）；Codex 模型 shell 默认在沙箱内、打开 daemon 命名管道 `Access is denied`（只读 `status` 同样失败，沙箱原因已证实），脱沙箱申请在 auto 模式静默通过。 验收后落地并复验通过的改动：注入、done/continue/status 三入口、阻断文案、↑ 回填、插件升级（静默、不重新信任）、两宿主并集、自然语言确认（Claude 直接执行；Codex 须脱沙箱执行，auto 模式静默）、去术语化提醒与第二档语气、status 原样输出、`done` 结束 lease、lease 未激活时不显示 reason、Codex `$walkout:status` skill——全部真机通过。插件清单与 marketplace 目录版本一致性已由契约测试固定。
 - 探针操作纪律已写入两份探针 README「重跑」段：卸载插件不影响已启动的宿主进程（须重启工作会话）；本机所有启用 Walkout 的进程共享默认管道，预置后先核对 `walkout-ctl status` 再进 TUI。
-- **开源发布已执行（2026-09-28，Master 裁定：MIT、个人账号、直接公开、压缩历史）**：Go module `github.com/LexLuc/walkout`；MIT（Copyright 2026 Lex）；双语 README（英文在前、中文在后，tagline *Your agent walks out until you do.* / 「你不动，它罢工」，含 AI 辅助声明与产品命题）；公开仓库 https://github.com/LexLuc/walkout，`main` 为单提交初始发布，完整历史仅保留于本地 `backup/full-history`。探针环境已按 `uninstall-and-cleanup.md` 完成零残留终验（2026-09-28，指南步骤与实际残留完全吻合）。剩余：本地目录改名 `walkout`（须所有进程退出目录后进行）；GitHub marketplace 形式安装（`claude plugin marketplace add LexLuc/walkout` / Codex 对应形式）尚未验证，验证后更新 README 安装段。
+- **开源发布已执行（2026-09-28，Master 裁定：MIT、个人账号、直接公开、压缩历史）**：Go module `github.com/LexLuc/walkout`；MIT（Copyright 2026 Lex）；双语 README（英文在前、中文在后，tagline *Your agent walks out until you do.* / 「你不动，它罢工」，含 AI 辅助声明与产品命题）；公开仓库 https://github.com/LexLuc/walkout，`main` 为单提交初始发布，完整历史仅保留于本地 `backup/full-history`。探针环境已按 `uninstall-and-cleanup.md` 完成零残留终验（2026-09-28，指南步骤与实际残留完全吻合）。本地目录已改名为 `walkout`（2026-09-28）。剩余：GitHub marketplace 形式安装（`claude plugin marketplace add LexLuc/walkout` / Codex 对应形式）尚未验证，验证后更新 README 安装段。
 
 ### 已知重定向条件
 
