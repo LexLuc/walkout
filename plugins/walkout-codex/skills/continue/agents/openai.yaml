@@ -1,0 +1,7 @@
+interface:
+  display_name: "Emergency Continue"
+  short_description: "Resume a paused Codex session for 15 minutes"
+  default_prompt: "$walkout:continue"
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,19 @@
+{
+  "name": "walkout",
+  "version": "0.1.0",
+  "description": "In-conversation emergency continue control for Walkout",
+  "author": {
+    "name": "Lexicon"
+  },
+  "skills": "./skills/",
+  "hooks": "./.codex/hooks.json",
+  "interface": {
+    "displayName": "Walkout",
+    "shortDescription": "Resume a health-paused Codex session.",
+    "longDescription": "Adds an explicit Codex skill for requesting the existing 15-minute Walkout emergency-continue lease without leaving the conversation.",
+    "developerName": "Lexicon",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": "$walkout:continue"
+  }
+}

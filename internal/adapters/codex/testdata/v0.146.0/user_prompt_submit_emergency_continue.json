@@ -1,0 +1,10 @@
+{
+  "session_id": "session-fixture",
+  "turn_id": "turn-emergency-fixture",
+  "transcript_path": "<redacted-transcript-path>",
+  "cwd": "<redacted-cwd>",
+  "hook_event_name": "UserPromptSubmit",
+  "model": "<redacted-model>",
+  "permission_mode": "default",
+  "prompt": "$walkout:continue 生产事故热修复"
+}

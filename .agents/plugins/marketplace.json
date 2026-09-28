@@ -1,0 +1,20 @@
+{
+  "name": "lexicon",
+  "interface": {
+    "displayName": "Lexicon"
+  },
+  "plugins": [
+    {
+      "name": "walkout",
+      "source": {
+        "source": "local",
+        "path": "./plugins/walkout-codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

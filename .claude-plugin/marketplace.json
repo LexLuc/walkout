@@ -1,0 +1,21 @@
+{
+  "name": "lexicon",
+  "owner": {
+    "name": "Lexicon"
+  },
+  "metadata": {
+    "description": "In-conversation controls for the Walkout local health-intervention daemon.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "walkout",
+      "description": "Resume or inspect a health-paused Claude Code session without leaving the conversation.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Lexicon"
+      },
+      "source": "./plugins/walkout"
+    }
+  ]
+}

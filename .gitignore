@@ -1,0 +1,10 @@
+.tmp/
+
+# Per-session Claude Code state — never committed.
+.claude/
+
+# Built plugin binaries — produced by plugins/walkout/build.ps1, not committed.
+plugins/walkout/bin/*.exe
+
+# Built Codex plugin binary — produced by plugins/walkout-codex/build.ps1.
+plugins/walkout-codex/bin/*.exe

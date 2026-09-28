@@ -1,0 +1,7 @@
+interface:
+  display_name: "Confirm Activity"
+  short_description: "Tell Walkout you have moved; clears work time and debt"
+  default_prompt: "$walkout:done"
+
+policy:
+  allow_implicit_invocation: false

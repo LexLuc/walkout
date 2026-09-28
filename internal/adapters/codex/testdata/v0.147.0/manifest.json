@@ -1,0 +1,20 @@
+{
+  "provider": "codex",
+  "host_version": "0.147.0",
+  "captured_on": "2026-08-08",
+  "capture_mode": "codex exec --ephemeral with trusted project hooks and controlled prompts",
+  "sanitization": [
+    "session and turn identifiers replaced",
+    "working directory and model replaced",
+    "prompt and assistant message replaced",
+    "transcript path was null in the ephemeral probe"
+  ],
+  "verified_capabilities": [
+    "block_prompt"
+  ],
+  "observations": [
+    "SessionEnd was recorded even though it was not printed in the exec console lifecycle trace",
+    "SessionEnd omitted model and permission_mode in the captured payload",
+    "a blocked non-interactive exec invocation did not exit within 30 seconds"
+  ]
+}

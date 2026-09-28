@@ -1,0 +1,10 @@
+{
+  "session_id": "session-fixture",
+  "turn_id": "turn-fixture",
+  "transcript_path": null,
+  "cwd": "<redacted-cwd>",
+  "hook_event_name": "UserPromptSubmit",
+  "model": "<redacted-model>",
+  "permission_mode": "bypassPermissions",
+  "prompt": "CONFIDENTIAL_KNOWLEDGE_WORK_PROMPT"
+}

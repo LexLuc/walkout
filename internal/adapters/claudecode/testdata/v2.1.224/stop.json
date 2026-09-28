@@ -1,0 +1,12 @@
+{
+  "session_id": "session-fixture",
+  "transcript_path": "<redacted-transcript-path>",
+  "cwd": "<redacted-cwd>",
+  "prompt_id": "prompt-fixture",
+  "permission_mode": "default",
+  "hook_event_name": "Stop",
+  "stop_hook_active": false,
+  "last_assistant_message": "CONFIDENTIAL_ASSISTANT_MESSAGE",
+  "background_tasks": [],
+  "session_crons": []
+}

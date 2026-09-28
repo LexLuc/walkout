@@ -1,0 +1,8 @@
+{
+  "session_id": "session-fixture",
+  "transcript_path": "<redacted-transcript-path>",
+  "cwd": "<redacted-cwd>",
+  "prompt_id": "prompt-fixture",
+  "hook_event_name": "SessionEnd",
+  "reason": "other"
+}

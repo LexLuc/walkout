@@ -1,0 +1,7 @@
+{
+  "session_id": "session-fixture",
+  "transcript_path": null,
+  "cwd": "<redacted-cwd>",
+  "hook_event_name": "SessionEnd",
+  "reason": "other"
+}

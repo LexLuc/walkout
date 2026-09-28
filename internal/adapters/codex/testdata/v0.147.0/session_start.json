@@ -1,0 +1,9 @@
+{
+  "session_id": "session-fixture",
+  "transcript_path": null,
+  "cwd": "<redacted-cwd>",
+  "hook_event_name": "SessionStart",
+  "model": "<redacted-model>",
+  "permission_mode": "bypassPermissions",
+  "source": "startup"
+}

@@ -1,0 +1,49 @@
+{
+  "description": "Walkout lifecycle hooks: forward host events to the local walkoutd guard and render any pause. Host version is best-effort via $CLAUDE_CODE_VERSION; a missing value defaults to \"unknown\" in the translator, so the guard still works if the host does not expand it.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/walkout-hook.exe\" -provider claude-code -host-version \"$CLAUDE_CODE_VERSION\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/walkout-hook.exe\" -provider claude-code -host-version \"$CLAUDE_CODE_VERSION\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/walkout-hook.exe\" -provider claude-code -host-version \"$CLAUDE_CODE_VERSION\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/walkout-hook.exe\" -provider claude-code -host-version \"$CLAUDE_CODE_VERSION\"",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

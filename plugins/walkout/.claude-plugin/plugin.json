@@ -1,0 +1,8 @@
+{
+  "name": "walkout",
+  "version": "0.1.0",
+  "description": "In-conversation emergency continue control for Walkout.",
+  "author": {
+    "name": "Lexicon"
+  }
+}

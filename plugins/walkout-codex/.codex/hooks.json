@@ -1,0 +1,41 @@
+{
+  "description": "Walkout lifecycle hooks: forward Codex events to the local walkoutd guard. The package version is best-effort and an unavailable version source falls back to unknown without disabling the guard.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "commandWindows": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "commandWindows": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "commandWindows": "pwsh -NoProfile -File \"${PLUGIN_ROOT}/hooks/run-hook.ps1\" -HookExe \"${PLUGIN_ROOT}/bin/walkout-hook.exe\" -Provider codex -HostPackageEnv CODEX_MANAGED_PACKAGE_ROOT",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

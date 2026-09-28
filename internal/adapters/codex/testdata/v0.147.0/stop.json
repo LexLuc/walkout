@@ -1,0 +1,11 @@
+{
+  "session_id": "session-fixture",
+  "turn_id": "turn-fixture",
+  "transcript_path": null,
+  "cwd": "<redacted-cwd>",
+  "hook_event_name": "Stop",
+  "model": "<redacted-model>",
+  "permission_mode": "bypassPermissions",
+  "stop_hook_active": false,
+  "last_assistant_message": "CONFIDENTIAL_ASSISTANT_MESSAGE"
+}

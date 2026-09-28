@@ -1,0 +1,24 @@
+{
+  "provider": "codex",
+  "host_version": "0.146.0",
+  "captured_on": "2026-08-12",
+  "capture_mode": "interactive Codex TUI with the local walkout plugin; a privacy-filtering recorder forwarded the same stdin to the real walkout-hook and walkoutd",
+  "sanitization": [
+    "session and turn identifiers replaced",
+    "working directory and model replaced",
+    "transcript path replaced",
+    "prompt contains only the fixed control marker and a deliberately non-sensitive reason"
+  ],
+  "verified_capabilities": [
+    "block_prompt",
+    "namespaced skill mention preserved verbatim in UserPromptSubmit.prompt",
+    "same-submit emergency_continue authorization",
+    "bang shell fallback renews the existing emergency lease"
+  ],
+  "observations": [
+    "the recorder captured exactly one fixed-marker control submission and did not record ordinary prompts",
+    "the interactive TUI payload had a non-null transcript_path and permission_mode default",
+    "the continue skill produced one acknowledgement sentence without reading files or calling tools",
+    "service_paused state and accrued debt were preserved while the lease admitted later prompts"
+  ]
+}

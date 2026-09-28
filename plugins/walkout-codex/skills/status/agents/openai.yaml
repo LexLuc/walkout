@@ -1,0 +1,7 @@
+interface:
+  display_name: "Walkout Status"
+  short_description: "Show Walkout status and any active emergency continue"
+  default_prompt: "$walkout:status"
+
+policy:
+  allow_implicit_invocation: false

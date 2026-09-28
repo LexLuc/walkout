@@ -1,0 +1,25 @@
+{
+  "provider": "claude_code",
+  "host_version": "2.1.224",
+  "captured_on": "2026-08-08",
+  "capture_mode": "claude -p with --settings hook overrides, --max-turns 1, --max-budget-usd cap, recorder writing only to a Git-ignored directory",
+  "sanitization": [
+    "session and prompt identifiers replaced",
+    "transcript path and working directory replaced",
+    "prompt and last assistant message replaced"
+  ],
+  "verified_capabilities": [
+    "block_prompt"
+  ],
+  "observations": [
+    "no turn_id field exists; prompt-scoped correlation uses prompt_id",
+    "prompt_id also appears on SessionEnd, including after a blocked prompt",
+    "no model field appeared in any captured payload",
+    "permission_mode appeared only on UserPromptSubmit and Stop",
+    "Stop carried background_tasks and session_crons arrays",
+    "transcript_path was a real file path, unlike the null in the Codex ephemeral probe",
+    "a blocked headless print run exited 0 in about 6 seconds with num_turns 0, produced no Stop event, and still fired SessionEnd",
+    "--include-hook-events emitted system hook_started and hook_response records in stream-json",
+    "interactive input retention after a blocked prompt remains unverified; the headless probe cannot prove it"
+  ]
+}

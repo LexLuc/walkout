@@ -1,0 +1,9 @@
+{
+  "session_id": "session-fixture",
+  "transcript_path": "<redacted-transcript-path>",
+  "cwd": "<redacted-cwd>",
+  "prompt_id": "prompt-fixture",
+  "permission_mode": "default",
+  "hook_event_name": "UserPromptSubmit",
+  "prompt": "CONFIDENTIAL_KNOWLEDGE_WORK_PROMPT"
+}
