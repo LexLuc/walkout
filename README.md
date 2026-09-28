@@ -75,7 +75,7 @@ codex plugin add walkout@lexicon
 
 Start a new Codex session and approve the three hook events (`SessionStart`, `UserPromptSubmit`, `SessionEnd`) when asked. `$` lists the three skills. Codex runs model-issued shell commands in a sandbox that cannot open the daemon's pipe, so the `status` skill and the plain-language confirmation request escalated execution; in auto mode this is silent, under an on-request approval policy you will see one prompt per call.
 
-Installing from the GitHub marketplace form (`claude plugin marketplace add LexLuc/walkout`) has not been verified yet; the local-clone form above is what the acceptance round used.
+**Do not install from the GitHub marketplace form yet.** `claude plugin marketplace add LexLuc/walkout` and `codex plugin marketplace add LexLuc/walkout` both succeed, but the plugin binaries are build outputs that are not in the repository, so the installed plugin has no `walkout-hook.exe` and its guard never engages (hooks fail open silently). Use the local-clone form above until prebuilt release binaries ship.
 
 ## Defaults
 
@@ -182,7 +182,7 @@ codex plugin add walkout@lexicon
 
 新开 Codex 会话，按提示批准三个 hook 事件（`SessionStart`、`UserPromptSubmit`、`SessionEnd`）。`$` 可见三个 skill。Codex 把模型发出的 shell 命令放在沙箱里执行、无法打开 daemon 的管道，因此 `status` skill 与自然语言确认会申请脱沙箱执行：auto 模式静默，on-request 审批策略下每次调用弹一次批准。
 
-以 GitHub marketplace 形式安装（`claude plugin marketplace add LexLuc/walkout`）尚未验证；验收使用的是上面的本地检出方式。
+**暂勿以 GitHub marketplace 形式安装。** `claude plugin marketplace add LexLuc/walkout` 与 `codex plugin marketplace add LexLuc/walkout` 都能成功，但插件二进制是构建产物、不在仓库中，安装后的插件没有 `walkout-hook.exe`，守卫永远不会生效（hook 静默失败放行）。在提供预构建发布二进制之前，请使用上面的本地检出方式。
 
 ## 默认参数
 

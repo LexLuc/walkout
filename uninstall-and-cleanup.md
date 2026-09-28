@@ -12,6 +12,7 @@
 | Claude 项目信任 | `~/.claude.json` 中的项目路径记录 | 首次在某目录启动 `claude` | 卸载不涉及；探针目录删除后只需核对无残留 |
 | Codex 插件 | `~/.codex/plugins/cache/<marketplace>/walkout/<version>/` | `codex plugin add` | `codex plugin remove` 移除登记，**缓存目录不清** |
 | Codex marketplace | `~/.codex/config.toml` | `codex plugin marketplace add` | `codex plugin marketplace remove` |
+| GitHub 形式 marketplace 克隆 | Claude `~/.claude/plugins/marketplaces/<name>/`；Codex `~/.codex/.tmp/marketplaces/<name>/` | `marketplace add <owner>/<repo>` | 对应的 `marketplace remove` 会一并删除（2026-09-28 两宿主实测） |
 | Codex hook 信任 | `~/.codex/config.toml` 的 `[hooks.state."walkout@<marketplace>:.codex/hooks.json:<event>:0:0"]` 段（每事件一段，含 `trusted_hash`） | 首次授权 hook | **任何 Codex 命令都不清除**，手动删除 |
 | daemon 进程 | `walkoutd.exe`（V1 无服务注册、无开机自启；由用户或探针脚本前台/后台启动） | 手动 | Ctrl+C 或 `Stop-Process` |
 | daemon 数据 | `%LocalAppData%\Walkout\walkout.db`（及 `-wal` / `-shm`） | daemon 首次运行 | 手动删除 |
